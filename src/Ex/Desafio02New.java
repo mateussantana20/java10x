@@ -2,17 +2,16 @@ package Ex;
 
 import java.util.Scanner;
 
-public class Desafio2 {
+public class Desafio02New {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
-        final int MAX_NINJAS = 100; // Define um limite máximo de ninjas
-        String[] ninjas = new String[MAX_NINJAS];
+        String[] ninjas = new String[100];
         int totalNinjas = 0; // Contador para acompanhar quantos ninjas foram cadastrados
+        boolean executando = true;
 
         System.out.println("Bem-vindo ao Sistema de Cadastro de Ninjas da Vila da Folha!");
         System.out.println("----------------------------------------------------------");
-
-        boolean executando = true;
 
         while (executando) {
             System.out.println("\nMenu:");
@@ -26,8 +25,8 @@ public class Desafio2 {
 
             switch (opcao) {
                 case 1:
-                    if (totalNinjas >= MAX_NINJAS) {
-                        System.out.println("\nLimite máximo de " + MAX_NINJAS + " ninjas atingido!");
+                    if (totalNinjas >= 100) {
+                        System.out.println("Numero máximo de ninjas");
                     } else {
                         System.out.print("\nDigite o nome do ninja a ser cadastrado: ");
                         String nomeNinja = scanner.nextLine();
@@ -36,30 +35,31 @@ public class Desafio2 {
                         System.out.println("Ninja " + nomeNinja + " cadastrado com sucesso!");
                     }
                     break;
-
                 case 2:
-                    if (totalNinjas == 0) {
+                    if (totalNinjas <= 0) {
                         System.out.println("\nNenhum ninja cadastrado ainda.");
                     } else {
-                        System.out.println("\nLista de Ninjas da Vila da Folha:");
-                        System.out.println("-------------------------------");
+                        System.out.println("\nListando Ninjas cadastrados.");
                         for (int i = 0; i < totalNinjas; i++) {
-                            System.out.println((i + 1) + ". " + ninjas[i]);
+                            System.out.println("Nome " + (i + 1) + " : " + ninjas[i]);
                         }
                     }
                     break;
-
                 case 3:
+                    System.out.println("\nSaindo, Ate mais!!!.");
                     executando = false;
-                    System.out.println("\nEncerrando o sistema. Até logo!");
                     break;
 
                 default:
-                    System.out.println("\nOpção inválida. Por favor, escolha 1, 2 ou 3.");
+                    System.out.println("\nDigite 1,2 ou 3");
+                    break;
             }
+
+
         }
 
-        scanner.close();
-    }
 
+
+
+    }
 }
